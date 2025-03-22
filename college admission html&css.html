@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madras University Admission Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .form-container {
+            width: 50%;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h2 {
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        input, select {
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 100%;
+        }
+        .row-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        .row-container div {
+            flex: 1;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 15px;
+        }
+    </style>
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll('.form-page').forEach(page => {
+                page.style.display = 'none';
+            });
+            document.getElementById(pageId).style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <div class="form-container">
+        <div id="page1" class="form-page">
+            <h2>Madras University</h2>
+            <h3>Admission Form</h3>
+            <form>
+                <label>Full Name:</label>
+                <div class="row-container">
+                    <input type="text" placeholder="First Name">
+                    <input type="text" placeholder="Middle Initial">
+                    <input type="text" placeholder="Last Name">
+                </div>
+                <label>Birth Date:</label>
+                <div class="row-container">
+                    <select>
+                        <option value="">Select Month</option>
+                        <option>January</option>
+                        <option>February</option>
+                        <option>March</option>
+                        <option>April</option>
+                        <option>May</option>
+                        <option>June</option>
+                        <option>July</option>
+                        <option>August</option>
+                        <option>September</option>
+                        <option>October</option>
+                        <option>November</option>
+                        <option>December</option>
+                    </select>
+                    <select>
+                        <option value="">Select Day</option>
+                        <script>for (let i = 1; i <= 31; i++) document.write(`<option>${i}</option>`);</script>
+                    </select>
+                    <select>
+                        <option value="">Select Year</option>
+                        <script>for (let i = 2024; i >= 1900; i--) document.write(`<option>${i}</option>`);</script>
+                    </select>
+                </div>
+                <label>Gender:</label>
+                <select>
+                    <option>Male</option>
+                    <option>Female</option>
+                </select>
+                <label>Citizenship:</label>
+                <input type="text" placeholder="Country">
+                <label>Phone Number:</label>
+                <input type="text" placeholder="Enter phone number">
+                <label>Email Address:</label>
+                <input type="email" placeholder="example@gmail.com">
+                <label>Address:</label>
+                <input type="text" placeholder="Street Address">
+                <input type="text" placeholder="Street Address Line 2">
+                <div class="row-container">
+                    <input type="text" placeholder="City">
+                    <input type="text" placeholder="State/Province">
+                </div>
+                <label>Emergency Contact:</label>
+                <div class="row-container">
+                    <input type="text" placeholder="First Name">
+                    <input type="text" placeholder="Last Name">
+                </div>
+                <label>Relationship:</label>
+                <input type="text" placeholder="Relationship">
+                <label>Emergency Contact Email:</label>
+                <input type="email" placeholder="Enter email">
+                <label>Emergency Contact Phone:</label>
+                <input type="text" placeholder="Enter valid phone number">
+                <div class="button-container">
+                    <button type="button" onclick="showPage('page2')">Next</button>
+                </div>
+            </form>
+        </div>
+        
+        <div id="page2" class="form-page" style="display:none;">
+            <form>
+                <label>High School or Equivalent Name:</label>
+                <input type="text" placeholder="Enter school name">
+                <label>Graduation Date:</label>
+                <input type="date">
+                <div class="row-container">
+                    <input type="text" placeholder="School Address">
+                    <input type="text" placeholder="City">
+                </div>
+                <div class="row-container">
+                    <input type="text" placeholder="State/Province">
+                    <input type="text" placeholder="County">
+                </div>
+                <div class="button-container">
+                    <button type="button" onclick="showPage('page1')">Back</button>
+                    <button type="button" onclick="showPage('page3')">Next</button>
+                </div>
+            </form>
+        </div>
+
+        <div id="page3" class="form-page" style="display:none;">
+            <form>
+                <h3>Application Fee Payment (Due 3 days prior to class start)</h3>
+                <label>Payment Method:</label>
+                <div>
+                    <input type="checkbox"> Credit Card
+                    <input type="checkbox"> Mail a Check
+                    <input type="checkbox"> In Person at School
+                </div>
+                <div class="button-container">
+                    <button type="button" onclick="showPage('page2')">Back</button>
+                    <button type="submit">Submit Form</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
